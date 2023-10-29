@@ -1,13 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#post-create-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
-#app-header {
-    // Some css here
+a {
+    text-decoration: none;
+    color: #323232;
+
+    &:hover {
+        color: #a442b8ee;
+    }
 }
 
-#navbar-container {
-    // Some Comment
+.social-link:link, .social-link:visited {
+    font-size: 1.5rem;
+    color: #121212;
+    padding: 0 5px;
+}
+
+#blog-body {
+    min-height: 80vh;
+}
+
+#footer {
+    min-height:120px;
 }
