@@ -1,3 +1,24 @@
+* {
+    transition: all 0.5s ease-in-out;
+}
+
+#header {
+    
+}
+
+#menu-toggler {
+    outline: none;
+    border: none;
+}
+
+.my-color {
+    color: #72158f !important;
+}
+
+body {
+    background-color: #72158f;
+}
+
 #post-create-btn {
     font-size: 1.5rem;
     cursor: pointer;
@@ -5,16 +26,15 @@
 
 a {
     text-decoration: none;
-    color: #323232;
+    color: #c877d8ee;
 
     &:hover {
-        color: #a442b8ee;
+        color: #ebb70bee;
     }
 }
 
-.social-link:link, .social-link:visited {
+.social-link, .social-link {
     font-size: 1.5rem;
-    color: #121212;
     padding: 0 5px;
 }
 
