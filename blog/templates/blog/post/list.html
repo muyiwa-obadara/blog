@@ -7,7 +7,7 @@
 <div class="card my-2">
     <div class="card-body">
       <h5 class="card-title">
-        <a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
       </h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">
         Published: {{ post.publish }} by {{ post.author }}
@@ -21,4 +21,5 @@
     </div>
 </div>
 {% endfor %}
+{% include 'pagination.html' with page=page_obj %}
 {% endblock content %}
