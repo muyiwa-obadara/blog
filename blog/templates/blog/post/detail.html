@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load static %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
 <h3>{{ post.title }}</h3>
@@ -11,4 +12,28 @@
         Share this post
     </a>
 </p>
+{% with comments.count as total_comments %}
+<h4>
+    {{ total_comments }} comment{{ total_comments|pluralize }}
+</h4>
+{% endwith %}
+{% for comment in comments %}
+<div class="mb-2 row comments">
+    <div class="ms-2 mr-auto col-lg-9">
+        <div class="row justify-contents-center">
+            <div class="comment-thumbnail col-3">
+                <img class="img-thumbnail rounded-circle" src="{% static 'img/pic.jpg' %}" alt="...">
+            </div>
+            <div class="col-9">
+                <p>
+                    Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
+                </p>
+                {{ comment.body|linebreaks }}
+            </div>
+        </div>
+    </div>
+</div>
+{% empty %}
+<p>There are no comments yet</p>
+{% endfor %}
 {% endblock content %}
