@@ -1,21 +1,29 @@
 from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponse, HttpRequest
 from django.core.mail import send_mail
 from django.views.generic import ListView
 from django.views.decorators.http import require_POST
 
+from taggit.models import Tag
+
 from .models import Post, Comment
 from .forms import EmailPostForm, CommentForm
 
-class PostListView(ListView):
-    """
-    Class Based View for post list
-    """
-    queryset = Post.published.all()
-    context_object_name = 'posts'
-    paginate_by = 5
-    template_name = 'blog/post/list.html'
+def post_list(request):
+    post_list = Post.published.all()
+    paginator = Paginator(post_list, 3)
+    page_number = request.GET.get('page', 1)
+    try:
+        posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        # If page_number is not an integer deliver the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page_number is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'blog/post/list.html',
+                  {'posts': posts,})
 
 
 def post_detail(request:HttpRequest, year:int, month:int, day:int, post:str) -> HttpResponse:
