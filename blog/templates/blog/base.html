@@ -22,26 +22,24 @@
               {% endcomment %}
               <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
+                  <div class="d-flex align-items-center">
                   <a class="navbar-brand my-color" href="/">
                     <img src="{% static 'img/logo.jpeg' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                     Muyco Blog
                   </a>
-                  <div class="wrapper-dev my-color">
-                    <button id="menu-toggler44" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                      <i class="my-color fa fa-bars" id="nav-toggle-btn"></i>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                      <ul class="navbar-nav">
-                        <li class="nav-item">
-                          <a class="nav-link" title="Create a Post">
-                            <i id="post-create-btn" class="my-color fa fa-plus"></i>
-                          </a>
-                        </li>
+                  <a class="btn btn-outline-secondary" title="Create a Post">
+                    <i id="post-create-btn" class="my-color fa fa-plus"></i> Create Post
+                  </a>
+                </div>
+                  
+                  <div class="wrapper-dev my-color d-flex">
+                    
+                      <ul class="navbar-nav m-2">
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="my-color fa fa-user"></i>
                           </a>
-                          <ul class="dropdown-menu">
+                          <ul class="dropdown-menu" style="border-radius: 0;">
                             <li><a class="my-color dropdown-item" href="#">
                               <i class="my-color fa fa-user"></i> Profile
                             </a></li>
@@ -53,7 +51,7 @@
                           </ul>
                         </li>
                       </ul>
-                    </div>
+                  
                   </div>
                 </div>
               </nav>
