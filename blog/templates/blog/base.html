@@ -29,7 +29,7 @@
         <div class="text-center container">
           <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
           {% total_blog_posts %} posts has been written on this blog so far.
-          <button type="button" data-bs-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></button>
+          <button style="background-color: transparent; font-size: 1.5rem;" class="border-0" type="button" data-bs-dismiss="alert" aria-label="Close"><i class="fa fa-close"></i></button>
         </div>
       </div>
       <div class="container-fluid4 bg-body-tertiary my-color sticky-top shadow-sm" id="header">
@@ -76,15 +76,16 @@
         </div>
       </div>
 
-      <div class="container-fluid bg-body-tertiary" id="blog-body">
+      <div class="pt-5 container-fluid bg-body-tertiary" id="blog-body">
         <div class="container">
           <div class="row">
-            <div class="col-md-9 py-2">
+            <div class="col-md-9">
               {% block content %}
               {% endblock content %}
             </div>
             <aside class="col-md-3">
-              Sidebar
+              <h4>Latest Posts</h4>
+              {% show_latest_posts 3 %}
             </aside>
           </div>
         </div>
