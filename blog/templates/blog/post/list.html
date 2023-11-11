@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load blog_tags %}
 
 {% block title %}My Blog{% endblock title %}
 
@@ -25,7 +26,7 @@
         {% endfor %}
       </p>
       <p class="m-0 card-text">
-        {{ post.body|truncatewords:30|linebreaks }}
+        {{ post.body|markdown|truncatewords_html:30 }}
       </p>
       <a href="#" class="card-link">Comments</a>
       <a href="#" class="card-link">Likes</a>
