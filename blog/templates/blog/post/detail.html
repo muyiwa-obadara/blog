@@ -3,19 +3,24 @@
 {% load blog_tags %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block content %}
-<div class="card my-3 p-4">
-    <h3>{{ post.title }}</h3>
-    <p class="date">
-        Published {{ post.publish }} by {{ post.author }}
-    </p>
-    {{ post.body|markdown }}
-    <p>
-        <a href="{% url "blog:post_share" post.id %}">
-            Share this post
-        </a>
-    </p>
-</div>
 <div class="row">
+    <div class="col">
+        <div class="card my-1 p-3">
+            <h3>{{ post.title }}</h3>
+            <p class="date">
+                Published {{ post.publish }} by {{ post.author }}
+            </p>
+            {{ post.body|markdown }}
+            <p>
+                <a href="{% url "blog:post_share" post.id %}">
+                    Share this post
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
     <div class="col-lg-7">
         {% with comments.count as total_comments %}
         <h4>
@@ -24,10 +29,7 @@
         {% endwith %}
         {% for comment in comments %}
         <div id="comments" class="mb-2 row comments">
-            <div id="thumbnail-container" class="comment-thumbnail col-2 justify-contents-center">
-                <img class="img-thumbnail rounded-circle" src="{% static 'img/pic.jpg' %}" alt="...">
-            </div>
-            <div class="col-10">
+            <div class="col justify-self-end">
                 <h6>{{ comment.name }} {{ comment.created }}</h6>
                 <p>{{ comment.body|linebreaks }}</p>
             </div>

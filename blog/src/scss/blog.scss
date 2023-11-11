@@ -1,35 +1,22 @@
+:root{
+    --my-color: #2a0cb1 !important;
+    --link-hover: rgb(241, 207, 10);
+}
+
 * {
     transition: all 0.5s ease-in-out;
 }
 
-.primary {
-    color:#72158f;
-}
-
-#menu-toggler {
-    outline: none;
-    border: none;
-}
-
-.my-color {
-    color: #72158f !important;
-}
-
 body {
-    background-color: #72158f;
-}
-
-#post-create-btn {
-    font-size: 1.5rem;
-    cursor: pointer;
+    background-color: var(--my-color);
 }
 
 a {
     text-decoration: none;
-    color: #c877d8ee;
+    color: var(--my-color);
 
     &:hover {
-        color: #ebb70bee;
+        color: var(--link-hover)
     }
 }
 
@@ -42,13 +29,13 @@ a {
     min-height: 80vh;
 }
 
-#thumbnail-container {
-    max-width: 80px;
-    max-height: 80px;
-}
 
 #footer {
     min-height: 120px;
+}
+
+#header {
+    background-color: #eeeeee;
 }
 
 .comments {
@@ -56,4 +43,8 @@ a {
     padding: 10px;
     border: 1px solid #dbd0df;
     border-radius: 5px;
+}
+
+#blog-body {
+    background-color: #ddd;
 }
